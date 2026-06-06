@@ -8,13 +8,13 @@
 export const API_URL = 'https://script.google.com/macros/s/AKfycbxCeTcwkqoNSmbo5ZzV6yrGLpQQQcFo_XPSXHgyVBGiui9VIH2Qtv25puhnVxFs-NeiCA/exec';
 
 // ── Google Sheets (lectura directa sin API key) ──
-export const SHEETS_ID = '1Nv0Yxc4H6kOZPszjv-52wFsZkO5D8094';
+export const SHEETS_ID = '1Em_rLq2qfIloRVBBhzS0PbGCp-nlpLBMLh5qZBWbkzg';
 export const SHEET_GIDS = {
-  faq:       '2042874289',
-  pagos:     '840837208',
-  promos:    '909598539',
-  mayorista: '1081209853',
-  config:    '496931508'
+  faq:       '326911256',
+  pagos:     '1467806632',
+  promos:    '653912710',
+  mayorista: '188485634',
+  config:    '863906925'
 };
 
 // ── WhatsApp ──────────────────────────────────
