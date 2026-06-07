@@ -98,6 +98,7 @@ export const AdminController = {
     if (section === 'faq')        await this._loadFAQ();
     if (section === 'pagos')      await this._loadPagos();
     if (section === 'promociones')await this._loadPromos();
+    if (section === 'promos')      await this._loadPromos();
     if (section === 'mayorista')  await this._loadMayorista();
     if (section === 'config')     await this._loadConfig();
   },
