@@ -118,18 +118,16 @@ export const ChatController = {
 },
 
   clearChat() {
-    localStorage.removeItem(LS_MSGS);
-    localStorage.removeItem(LS_STATE);
-    this.state = 'menu';
-    ChatView.clearMessages();
-    ChatView.closeConfig();
-    FAQModel.invalidate();
-    PagoModel.invalidate();
-    PromoModel.invalidate();
-    MayoristaModel.invalidate();
-    ConfigModel.invalidate();
-    setTimeout(() => this.showWelcome(), 300);
-  },
+  localStorage.removeItem(LS_MSGS);
+  localStorage.removeItem(LS_STATE);
+  this.state  = 'menu';
+  this.botBusy = false;
+  document.getElementById('send-btn').disabled = false;
+  ChatView.clearMessages();
+  ChatView.clearQuickReplies();
+  ChatView.closeConfig();
+  setTimeout(() => this.showWelcome(), 300);
+},
 
   // ── ENVÍO DE MENSAJES ────────────────────
   async sendMessage() {
