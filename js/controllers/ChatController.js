@@ -242,16 +242,7 @@ export const ChatController = {
     faq_post:      ['1 — Otra','2 — Menú','3 — Salir']
   };
 
-  let chips = map[this.state];
-
-  if (this.state === 'faq') {
-    try {
-      const faqs = await FAQModel.getAll();
-      chips = faqs.map((_, i) => String(i + 1));
-    } catch(e) {
-      chips = [];
-    }
-  }
+  const chips = map[this.state];
 
   if (chips && chips.length) {
     ChatView.setQuickReplies(chips, (val) => {
@@ -260,17 +251,6 @@ export const ChatController = {
     });
   } else {
     ChatView.clearQuickReplies();
-  }
-
-  // Solo el FAQ necesita re-scroll porque
-  // sus chips llegan async después del botSay
-  if (this.state === 'faq') {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const c = document.getElementById('messages');
-        c.scrollTop = c.scrollHeight;
-      });
-    });
   }
 },
 
