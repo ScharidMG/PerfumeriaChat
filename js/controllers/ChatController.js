@@ -246,8 +246,6 @@ export const ChatController = {
 
   let chips = map[this.state];
 
-  // FAQ genera los chips dinámicamente
-  // según cuántas preguntas haya cargadas
   if (this.state === 'faq') {
     try {
       const faqs = await FAQModel.getAll();
@@ -264,6 +262,17 @@ export const ChatController = {
     });
   } else {
     ChatView.clearQuickReplies();
+  }
+
+  // Solo el FAQ necesita re-scroll porque
+  // sus chips llegan async después del botSay
+  if (this.state === 'faq') {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const c = document.getElementById('messages');
+        c.scrollTop = c.scrollHeight;
+      });
+    });
   }
 },
 
